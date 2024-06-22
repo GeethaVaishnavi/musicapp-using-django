@@ -1,0 +1,39 @@
+<!-- dashboard.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music Dashboard</title>
+    <style>
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            width: 200px;
+            text-align: center;
+            margin: 15px;
+            float: left;
+        }
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+        .container {
+            padding: 20px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <h2>Albums</h2>
+    <div class="container">
+        {% for album in albums %}
+        <div class="card">
+            <img src="{{ album.cover_image.url }}" alt="{{ album.title }}" style="width:100%">
+            <div class="container">
+                <h4><b>{{ album.title }}</b></h4>
+                <p>{{ album.artist }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

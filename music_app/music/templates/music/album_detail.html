@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{ album.title }}</title>
+    <title>Music App</title>
 </head>
 <body>
-    <h1>{{ album.title }}</h1>
-    <p>Artist: {{ album.artist.name }}</p>
-    <p>Release Date: {{ album.release_date }}</p>
-    <h2>Songs</h2>
+    <h1>Music App</h1>
+
+    <h2>Albums</h2>
     <ul>
-        {% for song in album.song_set.all %}
-        <li>{{ song.title }}</li>
+        {% for album in albums %}
+        <li>
+            <strong>{{ album.title }}</strong> by {{ album.artist.name }}
+            <ul>
+                {% for song in album.song_set.all %}
+                <li>
+                    {{ song.title }} - <a href="{% url 'download_song' song.id %}">Download</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </li>
         {% endfor %}
     </ul>
 </body>
