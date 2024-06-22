@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ artist.name }}</title>
+</head>
+<body>
+    <h1>{{ artist.name }}</h1>
+    <p>{{ artist.bio }}</p>
+    <h2>Albums</h2>
+    <ul>
+        {% for album in artist.album_set.all %}
+        <li>{{ album.title }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Songs</h2>
+    <ul>
+        {% for song in artist.song_set.all %}
+        <li>{{ song.title }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
